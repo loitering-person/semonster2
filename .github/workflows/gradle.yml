@@ -27,6 +27,8 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
+    - name:Grant excute permission for gradlew
+      run: chmod +x ./gradlew
 
     # Configure Gradle for optimal use in GitHub Actions, including caching of downloaded dependencies.
     # See: https://github.com/gradle/actions/blob/main/setup-gradle/README.md
@@ -46,5 +48,3 @@ jobs:
     #
     # - name: Build with Gradle 8.9
     #   run: gradle build
-
- 
