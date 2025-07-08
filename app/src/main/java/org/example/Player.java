@@ -9,6 +9,12 @@ import java.util.ArrayList;
  */
 public class Player {
   ArrayList<Monster> deck = new ArrayList<>();
+  String name;
+
+  Player(String name) {
+    this.name = name;
+    this.drawMonsters();
+  }
 
   public void drawMonsters() {
     for (int i = 0; i < 8; i++) {
