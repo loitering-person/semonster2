@@ -12,7 +12,7 @@ public class PlayerTest {
 
   // テストのやり方：generatedDeckArrの内容を編集し、以下の関数でそれをlinked list（generated deck)にコピー
   // 得られたlinked listは、playerインスタンスのコンストラクタで使う
-  public LinkedList<Integer> insertArrToLL(LinkedList<Integer> inputLL) {
+  public LinkedList<Integer> insertArrToLL() {
     LinkedList<Integer> outputLL = new LinkedList<>();
     for (int i : this.generatedDeckArr) {
       outputLL.add(i);
@@ -23,7 +23,7 @@ public class PlayerTest {
   @Test
   public void testdrawMonsters() {
     LinkedList<Integer> generatedDeck = new LinkedList<Integer>();
-
+    generatedDeck = insertArrToLL();
     Player player = new Player("test", generatedDeck);
 
     assertEquals(8, player.deck.size());
@@ -32,7 +32,7 @@ public class PlayerTest {
   @Test
   public void testtoString() {
     LinkedList<Integer> generatedDeck = new LinkedList<Integer>();
-
+    generatedDeck = insertArrToLL();
     Player player = new Player("test", generatedDeck);
 
     assertNotNull("Check Deck", player.toString());
