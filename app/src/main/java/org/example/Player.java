@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 /**
  * プレイヤーはモンスターデッキを持つ
@@ -20,6 +21,13 @@ public class Player {
     for (int i = 0; i < 8; i++) {
       this.deck.add(new Monster("スライム", 2));
     }
+  }
+
+  public void drawMonsters(LinkedList<Monster> monsters) {
+    for (Monster monster : monsters) {
+      this.deck.add(monster);
+    }
+
   }
 
   public void showDeck() {
