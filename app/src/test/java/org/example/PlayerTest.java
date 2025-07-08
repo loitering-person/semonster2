@@ -6,15 +6,14 @@ import static org.junit.Assert.*;
 public class PlayerTest {
   @Test
   public void testdrawMonsters() {
-    Player player = new Player();
+    Player player = new Player("test");
 
-    player.drawMonsters();
     assertEquals(8, player.deck.size());
   }
 
   @Test
   public void testtoString() {
-    Player player = new Player();
+    Player player = new Player("test");
 
     assertNotNull("Check Deck", player.toString());
   }
