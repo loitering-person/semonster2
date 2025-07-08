@@ -2,7 +2,6 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.Random;
 
 /**
  * プレイヤーはモンスターデッキを持つ
@@ -13,22 +12,20 @@ public class Player {
   ArrayList<Monster> deck = new ArrayList<>();
   LinkedList<Integer> randomlyGeneratedDeck;
   String name;
-  private int maxRarity = 4;
   private int monstersPerDeck = 8;
-  private int numberOfMonsterNames = 5;
 
-  Player(String name) {
+  Player(String name, LinkedList<Integer> deckLL) {
     this.name = name;
-    this.drawMonsters();
+    this.randomlyGeneratedDeck = deckLL;
+    this.deck = this.drawMonsters();
   }
 
-  public void drawMonsters() {
-    Random r = new Random();
-    int nameNum, rarityNum;
-    String monsterName;
+  public ArrayList<Monster> drawMonsters() {
+    ArrayList<Monster> newDeck = new ArrayList<Monster>();
     for (int i = 0; i < monstersPerDeck; i++) {
-
+      newDeck.add(new Monster(this.randomlyGeneratedDeck.pop(), this.randomlyGeneratedDeck.pop()));
     }
+    return newDeck;
   }
 
   public void showDeck() {
