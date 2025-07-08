@@ -26,7 +26,7 @@ public class PlayerTest {
     generatedDeck = insertArrToLL();
     Player player = new Player("test", generatedDeck);
 
-    assertEquals(8, player.deck.size());
+    assertEquals(this.generatedDeckArr.length / 2, player.deck.size());
   }
 
   @Test
@@ -34,7 +34,12 @@ public class PlayerTest {
     LinkedList<Integer> generatedDeck = new LinkedList<Integer>();
     generatedDeck = insertArrToLL();
     Player player = new Player("test", generatedDeck);
+    String cmpString = "Deck:user\n";
 
-    assertNotNull("Check Deck", player.toString());
+    for (int i = 0; i < generatedDeckArr.length; i += 2) {
+      cmpString += new Monster(generatedDeckArr[i], generatedDeckArr[i + 1]).toString() + '\n';
+    }
+
+    assertEquals(player.toString(), cmpString);
   }
 }
