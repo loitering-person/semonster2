@@ -12,7 +12,6 @@ public class Player {
   ArrayList<Monster> deck = new ArrayList<>();
   LinkedList<Integer> randomlyGeneratedDeck;
   String name;
-  private int monstersPerDeck = 8;
 
   Player(String name, LinkedList<Integer> deckLL) {
     this.name = name;
@@ -22,7 +21,7 @@ public class Player {
 
   public ArrayList<Monster> drawMonsters() {
     ArrayList<Monster> newDeck = new ArrayList<Monster>();
-    for (int i = 0; i < monstersPerDeck; i++) {
+    while (!randomlyGeneratedDeck.isEmpty()) {
       newDeck.add(new Monster(this.randomlyGeneratedDeck.pop(), this.randomlyGeneratedDeck.pop()));
     }
     return newDeck;
