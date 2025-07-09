@@ -40,6 +40,6 @@ public class PlayerTest {
       cmpString += new Monster(generatedDeckArr[i], generatedDeckArr[i + 1]).toString() + '\n';
     }
 
-    assertEquals(player.toString(), cmpString);
+    assertEquals(cmpString, player.toString());
   }
 }
