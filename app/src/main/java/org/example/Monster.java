@@ -4,8 +4,8 @@ public class Monster {
   String name;
   int rare;
 
-  Monster(String name, int rare) {
-    this.name = name;
+  Monster(int nameNum, int rare) {
+    this.name = this.summonMonster(nameNum);
     this.rare = rare;
   }
 
