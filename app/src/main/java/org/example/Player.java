@@ -22,7 +22,7 @@ public class Player {
   public ArrayList<Monster> drawMonsters() {
     ArrayList<Monster> newDeck = new ArrayList<Monster>();
     while (!randomlyGeneratedDeck.isEmpty()) {
-      newDeck.add(new Monster(this.randomlyGeneratedDeck.pop(), this.randomlyGeneratedDeck.pop(),this.randomlyGeneratedDeck.pop()));
+      newDeck.add(new Monster(this.randomlyGeneratedDeck.pop(), this.randomlyGeneratedDeck.pop()));
     }
     return newDeck;
   }

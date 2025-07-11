@@ -37,7 +37,7 @@ public class PlayerTest {
     String cmpString = "Deck:user\n";
 
     for (int i = 0; i < generatedDeckArr.length; i += 2) {
-      cmpString += new Monster(generatedDeckArr[i], generatedDeckArr[i + 1], generatedDeckArr[i]).toString() + '\n';
+      cmpString += new Monster(generatedDeckArr[i], generatedDeckArr[i + 1]).toString() + '\n';
     }
 
     assertEquals(cmpString, player.toString());
