@@ -74,4 +74,18 @@ public class Player {
     return message;
   }
 
+  public void attack(Player target, int monsterIndex) {
+    if (monsterIndex < 0 || this.deck.size() <= monsterIndex) {
+      System.out.println("不正なモンスターのインデックスです");
+      return;
+    }
+
+    Monster attacker = this.deck.get(monsterIndex);
+    int damage = attacker.getAttack();
+
+    System.out.println(this.name + "の" + attacker.getName() + "が" + target.getName() + "を攻撃! " + damage + "のダメージ!");
+
+    target.takeDamage(damage);
+  }
+
 }

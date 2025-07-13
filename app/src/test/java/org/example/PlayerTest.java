@@ -75,4 +75,30 @@ public class PlayerTest {
     assertTrue("HPが表示に含まれる", result.contains(hpString));
     assertTrue("モンスターが表示に含まれる", result.contains(monsterString));
   }
+
+  @Test
+  public void testAttack() {
+    Player attacker = new Player("attacker", insertArrToLL());
+    Player defender = new Player("defender", insertArrToLL());
+
+    Monster attackMonster = attacker.getDeck().get(0);
+    int attackPower = attackMonster.getAttack();
+    int expectedHP = defender.getHp() - attackPower;
+
+    attacker.attack(defender, 0);
+
+    assertEquals("モンスターの攻撃で相手のHPが減るか", Math.max(0, expectedHP), defender.getHp());
+  }
+
+  @Test
+  public void testAttackInvalidIndex() {
+    Player attacker = new Player("attacker", insertArrToLL());
+    Player defender = new Player("defender", insertArrToLL());
+
+    int beforeHP = defender.getHp();
+    attacker.attack(defender, -1);
+    attacker.attack(defender, 100);
+
+    assertEquals("無効なインデックスではHPが変化しないか", beforeHP, defender.getHp());
+  }
 }
