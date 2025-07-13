@@ -9,7 +9,7 @@ public class MonsterTest {
   @Test
   public void testMonsterCreation() {
     Monster monster = new Monster(0, 1);
-    assertEquals("スライム:レア度[1]", monster.toString());
+    assertEquals("スライム:レア度[1], 攻/防[10/5]", monster.toString());
   }
 
   @Test
@@ -23,6 +23,6 @@ public class MonsterTest {
   public void testEvolve() {
     Monster monster = new Monster(2, 3);
     monster.evolve();
-    assertEquals("ドラゴンナイト:レア度[3]", monster.toString());
+    assertEquals("ドラゴンナイト:レア度[5], 攻/防[50/25]", monster.toString());
   }
 }
